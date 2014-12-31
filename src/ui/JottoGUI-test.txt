@@ -1,0 +1,27 @@
+Manual testing for Jotto GUI
+============================
+
+Visual Layout of the GUI
+	All of the necessary components of the GUI are initialized and appear in the JFrame when the game is started. The top row contains a
+	label for the puzzle number, the button to load a new puzzle, and a text field to type in the new puzzle number. The second line contains
+	a label for "your guess here" followed by a text field for the user to enter their guess. The next row contains the table for the
+	history of the user's guesses. The table is initialized with headers for the columns labeled "guess", "in common", and "correct 
+	position". 
+
+Guess Listener
+	When the user enters a guess, their guess is immediately entered into the first column of the GUI table. The server's response to 
+	their guess is handled by a different class. The text field where their guess is entered clears in preparation for their next guess. 
+	
+Guess Worker
+	When the server responds to the user's guess, the number of letters their guess has in common with the answer is properly entered in
+	the second column of the GUI table. The number of letters in the correct position is added to the third column of the GUI table. If
+	there is a delay from the server, the correct response is properly delayed and added to the correct column. If the response has not
+	been added to the table, and simultaneously, a new puzzle is created, the old response is NOT added to the new game. Errors from the 
+	server are properly handled. The user's guess is still put into the first column, and a user friendly response is provided in the 
+	second column leaving the third column blank. 
+	
+New Puzzle Listener
+	When there is no puzzle number given, the puzzle listener produces a random number between 1 and 10000 and update the GUI accordingly, 
+	just as it should. If there is a puzzle number given, then either pressing enter in the text field or hitting the "new puzzle" button will 
+	result in the correct puzzle being loaded. The text field is also reset at this point. 
+	
